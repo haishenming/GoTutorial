@@ -8,6 +8,8 @@ package main
 import (
 	"fmt"
 	"unicode"
+	"bufio"
+	"os"
 )
 
 func main() {
@@ -15,13 +17,15 @@ func main() {
 	var st string
 	var digit, letter, space, other int = 0,0,0,0
 
-	fmt.Printf("输入一个字符串：")
-	fmt.Scanf("%s", &st)
+	inputReader := bufio.NewReader(os.Stdin)
+	fmt.Println("输入一个字符串：")
+	st, _ = inputReader.ReadString('\n')
+
 	for _,s := range st {
 		if unicode.IsDigit(s) {
-			fmt.Printf("%c 是数字\n", s)
+			fmt.Printf("%c是数字\n", s)
 			digit ++
-		} else if unicode.IsLetter(s) {
+		} else if unicode.IsLetter(s) {    // 不正确
 			fmt.Printf("%c是字母\n", s)
 			letter ++
 		} else if unicode.IsSpace(s) {
