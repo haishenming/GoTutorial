@@ -6,6 +6,10 @@
 package main
 
 import (
-	"fmt"
+	//"fmt"
 )
+
+func main() {
+	// 模拟竖式计算
+}
 
